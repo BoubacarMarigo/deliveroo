@@ -46,7 +46,7 @@ class App extends React.Component {
 								{Object.keys(this.state.menu).map((el1, index1) => {
 									return (
 										<div>
-											<h2>{el1}</h2>{' '}
+											{this.state.menu[el1].length === 0 ? null : <h2>{el1}</h2>}
 											<div className="MenuItems--items">
 												{this.state.menu[el1].map((el2, index2) => {
 													return (
