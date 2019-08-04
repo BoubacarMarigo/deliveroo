@@ -54,30 +54,38 @@ class App extends React.Component {
 															<div className="MenuItem--card">
 																<div className="MenuItem--texts">
 																	<h3>{el2.title}</h3>
-																	<p>{el2.description}</p>
+																	{el2.description ? <p>{el2.description}</p> : null}
 																	<div className="MenuItem--infos">
-																		<span className="MenuItem--price">25,00 €</span>
-																		<span className="MenuItem--popular">
-																			<svg
-																				xmlns="http://www.w3.org/2000/svg"
-																				viewBox="0 0 24 24"
-																				fill="#ff8000"
-																				className="feather feather-star"
-																				style={{
-																					width: 20,
-																					height: 20,
-																					marginRight: 5
-																				}}
-																			>
-																				<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-																			</svg>{' '}
-																			Populaire
+																		<span className="MenuItem--price">
+																			{el2.price} €
 																		</span>
+																		{el2.popular === true ? (
+																			<span className="MenuItem--popular">
+																				<svg
+																					xmlns="http://www.w3.org/2000/svg"
+																					viewBox="0 0 24 24"
+																					fill="#ff8000"
+																					className="feather feather-star"
+																					style={{
+																						width: 20,
+																						height: 20,
+																						marginRight: 5
+																					}}
+																				>
+																					<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+																				</svg>{' '}
+																				Populaire
+																			</span>
+																		) : null}
 																	</div>
 																</div>
-																<div className="MenuItem--picture">
-																	{el2.picture ? <img src={el2.picture} alt /> : null}
-																</div>
+																{el2.picture ? (
+																	<div className="MenuItem--picture">
+																		{el2.picture ? (
+																			<img src={el2.picture} alt />
+																		) : null}
+																	</div>
+																) : null}
 															</div>
 														</div>
 													);
